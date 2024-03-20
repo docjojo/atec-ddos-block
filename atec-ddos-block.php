@@ -4,7 +4,7 @@ if ( !defined('ABSPATH') ) { die; }
   * Plugin Name:  atec DDoS block
   * Plugin URI: https://atec-systems.com/
   * Description: atec DDoS block
-  * Version: 1.1.3
+  * Version: 1.1.4
   * Author: Chris Ahrweiler
   * Author URI: https://atec-systems.com
   * License: GPL2
@@ -18,7 +18,7 @@ function atec_wpdb_contains($str, array $arr) { foreach($arr as $a) { if (stripo
 
 if (is_admin())
 { 
-  wp_cache_set('atec_WPDB_version','1.1.3');
+  wp_cache_set('atec_WPDB_version','1.1.4');
   require_once(__DIR__.'/includes/wpdb-install.php');
   
   function atec_ddos_cleanup() 
@@ -57,6 +57,27 @@ if (is_admin())
     wp_clear_scheduled_hook( 'atec_ddos_cleanup' );
   }
   register_deactivation_hook( __FILE__, 'atec_wpdb_deactivate' );
+  
+  // UPDATE
+  
+  include_once(__DIR__.'/includes/updater.php');
+  
+      $config = array(
+        'slug' => plugin_basename( __FILE__ ),
+        'proper_folder_name' => 'atec-ddos-block',
+        'api_url' => 'https://api.github.com/repos/docjojo/atec-ddos-block',
+        'raw_url' => 'https://raw.githubusercontent.com/docjojo/atec-ddos-block/master',
+        'github_url' => 'https://github.com/docjojo/atec-ddos-block',
+        'zip_url' => 'https://github.com/docjojo/atec-ddos-block/archive/refs/heads/main.zip',
+        'sslverify' => true,
+        'requires' => '5.2',
+        'tested' => '6.5',
+        'readme' => 'readme.txt',
+        'access_token' => '',
+      ); 
+      new WP_GitHub_Updater( $config );
+  
+  // UPDATE
 }
 else
 {

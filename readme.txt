@@ -3,14 +3,14 @@ Contributors: DocJoJo
 Donate link: https://www.paypal.com/paypalme/atecsystems/5eur
 Tags: DDoS block
 Requires at least: 5.2
-Tested up to: 6.4.2
+Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.1.3
+Stable tag: 1.1.4
+~Current Version:1.1.4~
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-atec DDoS block 
-(Distributed Denial of Service Attacks)
+atec DDoS block (Distributed Denial of Service Attacks)
 
 == Description ==
 
